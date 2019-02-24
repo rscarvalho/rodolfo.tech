@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade');
+
+.pseudo-logo {
+  font-family: "Bungee Shade", monospace;
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;

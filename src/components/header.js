@@ -24,7 +24,7 @@ const Header = ({ siteTitle }) => (
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          <span className="pseudo-logo">R.</span>  {siteTitle}
         </Link>
       </h1>
     </div>
