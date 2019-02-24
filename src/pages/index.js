@@ -7,7 +7,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <h1>Hi, I'm Rodolfo.</h1>
-    <p>Welcome to your my website.</p>
+    <p>Welcome to my website.</p>
     <p>While I'm building it, please feel free to drop me a line
       at <a href="mailto:rodolfo@rodolfo.tech">rodolfo@rodolfo.tech</a>.</p>
   </Layout>
