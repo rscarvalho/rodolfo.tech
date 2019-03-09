@@ -1,12 +1,12 @@
-const path = require('path');
+const path = require("path")
 
 function fsSource(name, sourcePath) {
   return {
-    resolve: 'gatsby-source-filesystem',
+    resolve: "gatsby-source-filesystem",
     options: {
       name,
-      path: path.resolve(__dirname, sourcePath || `content/${name}`)
-    }
+      path: path.resolve(__dirname, sourcePath || `content/${name}`),
+    },
   }
 }
 
@@ -18,11 +18,12 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    fsSource('images', 'src/images'),
-    fsSource('blog'),
+    fsSource("images", "src/images"),
+    fsSource("blog"),
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-favicon`
+    `gatsby-plugin-favicon`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',

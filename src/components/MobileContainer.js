@@ -9,8 +9,6 @@ import {
   Icon,
 } from "semantic-ui-react"
 
-import { Link } from "gatsby"
-
 import { getWidth } from "../lib/layoutUtils"
 import HomePageHeading from "./HomePageHeading"
 import MainNavigation from "./MainNavigation"

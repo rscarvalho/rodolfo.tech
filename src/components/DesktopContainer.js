@@ -7,7 +7,6 @@ import {
   Segment,
 } from "semantic-ui-react"
 import { getWidth } from "../lib/layoutUtils"
-import { Link } from "gatsby"
 import HomePageHeading from "./HomePageHeading"
 import MainNavigation from "./MainNavigation"
 

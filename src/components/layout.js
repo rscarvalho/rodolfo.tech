@@ -1,12 +1,12 @@
 import "semantic-ui-css/semantic.min.css"
 import "./layout.css"
 
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import DesktopContainer from "./DesktopContainer"
 import MobileContainer from "./MobileContainer"
-import { Segment, Sticky, Container } from "semantic-ui-react"
+import { Segment, Container } from "semantic-ui-react"
 
 const ResponsiveContainer = ({ children, ...props }) => (
   <div style={{ flex: 1 }}>
