@@ -34,7 +34,7 @@ const config = {
 if (process.env.GA_TRACKING_ID) {
   // @ts-ignore
   config.plugins.push({
-    resolve: "gatsy-plugin-google-analytics",
+    resolve: "gatsby-plugin-google-analytics",
     options: {
       trackingId: process.env.GA_TRACKING_ID,
       head: false,
