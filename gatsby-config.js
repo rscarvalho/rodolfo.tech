@@ -1,3 +1,15 @@
+const path = require('path');
+
+function fsSource(name, sourcePath) {
+  return {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      name,
+      path: path.resolve(__dirname, sourcePath || `content/${name}`)
+    }
+  }
+}
+
 module.exports = {
   siteMetadata: {
     title: `rodolfo.tech`,
@@ -6,13 +18,8 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
+    fsSource('images', 'src/images'),
+    fsSource('blog'),
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-favicon`

@@ -1,0 +1,25 @@
+.title {
+  font-size: 4em !important;
+  font-weight: normal !important;
+  margin-bottom: 0 !important;
+  margin-top: 3em !important;
+}
+
+.mobileTitle {
+  font-size: 2em !important;
+  font-weight: normal !important;
+  margin-bottom: 0 !important;
+  margin-top: 1.5em !important;
+}
+
+.subheading {
+  font-weight: normal !important;
+  font-size: 1.7em !important;
+  margin-top: 1.5em !important;
+}
+
+.mobileSubheading {
+  font-weight: normal !important;
+  font-size: 1.5em !important;
+  margin-top: 0.5em !important;
+}

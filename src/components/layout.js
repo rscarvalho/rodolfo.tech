@@ -1,43 +1,55 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
+import "semantic-ui-css/semantic.min.css"
 import "./layout.css"
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+import { StaticQuery, graphql } from "gatsby"
+import DesktopContainer from "./DesktopContainer"
+import MobileContainer from "./MobileContainer"
+import { Segment, Sticky, Container } from "semantic-ui-react"
+
+const ResponsiveContainer = ({ children, ...props }) => (
+  <div style={{ flex: 1 }}>
+    <DesktopContainer {...props}>{children}</DesktopContainer>
+    <MobileContainer {...props}>{children}</MobileContainer>
+  </div>
+)
+
+const Layout = ({ children, ...props }) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+            }
           }
         }
-      }
-    `}
-    render={data => (
-      <>
-        <Header siteTitle={data.site.siteMetadata.title} />
+      `}
+      render={data => (
         <div
           style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0,
+            display: "flex",
+            minHeight: "100vh",
+            flexDirection: "column",
           }}
         >
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
+          <ResponsiveContainer {...props}>
+            <Container>{children}</Container>
+          </ResponsiveContainer>
+          <Segment as="footer" inverted vertical>
+            <Container>
+              © {new Date().getFullYear()}, Built with
+              {` `}
+              <a href="https://www.gatsbyjs.org">Gatsby</a>
+            </Container>
+          </Segment>
         </div>
-      </>
-    )}
-  />
-)
+      )}
+    />
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
