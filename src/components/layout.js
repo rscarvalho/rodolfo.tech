@@ -36,7 +36,7 @@ const Layout = ({ children, ...props }) => {
           }}
         >
           <ResponsiveContainer {...props}>
-            <Container>{children}</Container>
+            <Container style={{ marginTop: 20 }}>{children}</Container>
           </ResponsiveContainer>
           <Segment as="footer" inverted vertical>
             <Container>

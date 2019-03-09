@@ -10,7 +10,7 @@ function fsSource(name, sourcePath) {
   }
 }
 
-module.exports = {
+const config = {
   siteMetadata: {
     title: `rodolfo.tech`,
     description: `I like coding and building great products.`,
@@ -24,8 +24,22 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-favicon`,
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
   ],
 }
+
+if (process.env.GA_TRACKING_ID) {
+  // @ts-ignore
+  config.plugins.push({
+    resolve: "gatsy-plugin-google-analytics",
+    options: {
+      trackingId: process.env.GA_TRACKING_ID,
+      head: false,
+    },
+  })
+}
+
+module.exports = config

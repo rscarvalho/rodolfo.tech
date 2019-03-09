@@ -15,7 +15,7 @@ export default function HomePageHeading({ mobile = false }) {
       />
       <Header
         as="h2"
-        content="I like coding and building great products."
+        content="I love building great software."
         inverted
         className={mobile ? style.mobileSubheading : style.subheading}
       />
