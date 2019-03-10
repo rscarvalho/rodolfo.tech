@@ -23,6 +23,7 @@ const Layout = ({ children, ...props }) => {
           site {
             siteMetadata {
               title
+              author
             }
           }
         }
@@ -36,13 +37,14 @@ const Layout = ({ children, ...props }) => {
           }}
         >
           <ResponsiveContainer {...props}>
-            <Container style={{ marginTop: 20 }}>{children}</Container>
+            <Container style={{ marginTop: 20, marginBottom: 20 }}>
+              {children}
+            </Container>
           </ResponsiveContainer>
           <Segment as="footer" inverted vertical>
             <Container>
-              © {new Date().getFullYear()}, Built with
-              {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
+              © {new Date().getFullYear()}, {data.site.siteMetadata.author}.
+              Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
             </Container>
           </Segment>
         </div>

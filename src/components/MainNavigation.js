@@ -14,6 +14,7 @@ const BlogLink = ({ className, ...rest }) => (
 export default function MainNavigation() {
   return (
     <>
+      <Menu.Item className="pseudo-logo">R.</Menu.Item>
       <Menu.Item as={Link} to="/" activeClassName="active">
         Home
       </Menu.Item>

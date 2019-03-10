@@ -17,6 +17,14 @@ function SEO({ description, lang, meta, keywords, title }) {
             }}
             title={title}
             titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+            link={[
+              {
+                rel: "alternate",
+                type: "application/rss+xml",
+                title: "rodolfo.tech blog RSS feed",
+                href: `${data.site.siteMetadata.siteUrl}/rss.xml`,
+              },
+            ]}
             meta={[
               {
                 name: `description`,
@@ -90,6 +98,7 @@ const detailsQuery = graphql`
         title
         description
         author
+        siteUrl
       }
     }
   }

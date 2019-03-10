@@ -2,6 +2,7 @@
 path: "/blog/hello"
 date: "2019-03-09"
 title: "Hello!"
+draft: false
 ---
 
 # Hello.

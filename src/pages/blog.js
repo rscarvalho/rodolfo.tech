@@ -3,11 +3,12 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 
+import styles from "./blog.module.css"
+
 const BlogPostSummary = ({ title, date, path }) => (
   <li>
-    <Link to={path}>
-      {title} <small>{date}</small>
-    </Link>
+    <Link to={path}>{title}</Link>
+    <small>{date}</small>
   </li>
 )
 
@@ -19,7 +20,7 @@ export default function BlogPage({ data }) {
   return (
     <Layout>
       <h1>Blog</h1>
-      <ul>
+      <ul className={styles.postList}>
         {edges
           .map(e => e.node.frontmatter)
           .map(({ title, date, path }) => (
@@ -40,7 +41,7 @@ export const query = graphql`
         node {
           frontmatter {
             title
-            date(fromNow: true)
+            date(formatString: "MMMM DD, YYYY")
             path
           }
         }

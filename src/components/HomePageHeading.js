@@ -9,7 +9,7 @@ export default function HomePageHeading({ mobile = false }) {
     <Container text>
       <Header
         as="h1"
-        content="I am Rodolfo."
+        content="Hi! I am Rodolfo."
         inverted
         className={mobile ? style.mobileTitle : style.title}
       />
