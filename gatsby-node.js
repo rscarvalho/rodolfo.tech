@@ -17,6 +17,7 @@ exports.createPages = async ({ actions, graphql }) => {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
+        filter: { frontmatter: { draft: { ne: true } } }
       ) {
         edges {
           node {
@@ -42,16 +43,4 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 
   return null
-}
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === "MarkdownRemark") {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: "slug",
-      node,
-      value,
-    })
-  }
 }

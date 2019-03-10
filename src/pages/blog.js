@@ -12,10 +12,10 @@ const BlogPostSummary = ({ title, date, path }) => (
   </li>
 )
 
+const EmptyBlogList = () => <li className="empty">No blog posts.</li>
+
 export default function BlogPage({ data }) {
-  const {
-    allMarkdownRemark: { edges },
-  } = data
+  const edges = data.allMarkdownRemark ? data.allMarkdownRemark.edges : []
 
   return (
     <Layout>
@@ -26,6 +26,7 @@ export default function BlogPage({ data }) {
           .map(({ title, date, path }) => (
             <BlogPostSummary key={path} title={title} date={date} path={path} />
           ))}
+        {!edges.length && <EmptyBlogList />}
       </ul>
     </Layout>
   )
@@ -36,6 +37,7 @@ export const query = graphql`
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 1000
+      filter: { frontmatter: { draft: { ne: true } } }
     ) {
       edges {
         node {
