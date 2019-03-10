@@ -34,7 +34,14 @@ exports.createPages = async ({ actions, graphql }) => {
     return Promise.reject(result.errors)
   }
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  const edges =
+    result.data.allMarkdownRemark && result.data.allMarkdownRemark.edges
+
+  if (!edges) {
+    return
+  }
+
+  edges.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.path,
       component: blogPostTemplate,
